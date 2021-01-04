@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI search</title>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js">
+    </script>
+    <link rel="stylesheet" href="./style.css">
+</head>
+
+<body>
+    <div class="wrap">
+        <div class="search">
+            <input type="text" class="searchTerm" placeholder="What are you looking for?">
+            <button type="submit" class="searchButton">
+                <i class="fa fa-search"></i>
+            </button>
+        </div>
+        <h2>RESULT SEARCH</h2>
+
+    </div>
+
+
+    <table>
+        <thead>
+            <tr>
+                <th>Rows</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>This is row 0</td>
+            </tr>
+        </tbody>
+    </table>
+    <button class="add-row">
+        Add row
+    </button>
+    <script>
+        let lineNo = 1;
+        $(document).ready(function () {
+            $(".add-row").click(function () {
+                markup = "<tr><td>This is row " +
+                    lineNo + "</td></tr>";
+                tableBody = $("table tbody");
+                tableBody.append(markup);
+                lineNo++;
+            });
+        });
+    </script>
+</body>
+
+
+</html>

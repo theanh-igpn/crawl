@@ -1,0 +1,6 @@
+get crontab run with 30 * * * * 
+
+cd ~/crawler
+git pull origin master
+cd scrapper
+scrapy crawl baomoi

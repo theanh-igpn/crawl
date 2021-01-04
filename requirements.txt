@@ -5,3 +5,4 @@ twisted
 cryptography
 pyOpenSSL
 Scrapy
+pymongo

@@ -1,8 +1,13 @@
 # -*- coding: utf8 -*-
-import scrapy
 
+import scrapy
+from pymongo import MongoClient
+
+
+    
 class SohoaVnexpressNet(scrapy.Spider):
     name = "baomoi"
+
 
     def start_requests(self):
         urls = [
@@ -24,8 +29,14 @@ class SohoaVnexpressNet(scrapy.Spider):
             yield scrapy.Request(url=url, callback=self.parse_artilce)
 
     def parse_artilce(self, response):
+        client = MongoClient('mongodb://root:K5mvHk@35.240.237.82:27017/web2?authSource=admin')
+
         for entry in response.xpath('//*[@class="story__thumb"]'):
             artilce = {}
             artilce['title'] = entry.xpath('a/img/@alt').get()
             artilce['link'] = entry.xpath('a/@href').extract()[0]
             print(artilce)
+            with client:
+                db = client.web2
+                db.tintuc.create_index([ ("title", -1) ])
+                db.tintuc.insert_one(artilce)
