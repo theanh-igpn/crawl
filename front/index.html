@@ -20,37 +20,37 @@
             </button>
         </div>
         <h2>RESULT SEARCH</h2>
-
+        <table>
+            <thead>
+                <tr>
+                    <th>Rows</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>This is row 0</td>
+                </tr>
+            </tbody>
+        </table>
+        <button class="add-row">
+            Add row
+        </button>
+        <script>
+            let lineNo = 1;
+            $(document).ready(function () {
+                $(".add-row").click(function () {
+                    markup = "<tr><td>This is row " +
+                        lineNo + "</td></tr>";
+                    tableBody = $("table tbody");
+                    tableBody.append(markup);
+                    lineNo++;
+                });
+            });
+        </script>
     </div>
 
 
-    <table>
-        <thead>
-            <tr>
-                <th>Rows</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr>
-                <td>This is row 0</td>
-            </tr>
-        </tbody>
-    </table>
-    <button class="add-row">
-        Add row
-    </button>
-    <script>
-        let lineNo = 1;
-        $(document).ready(function () {
-            $(".add-row").click(function () {
-                markup = "<tr><td>This is row " +
-                    lineNo + "</td></tr>";
-                tableBody = $("table tbody");
-                tableBody.append(markup);
-                lineNo++;
-            });
-        });
-    </script>
+
 </body>
 
 
